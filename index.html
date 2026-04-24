@@ -1,42 +1,187 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Snack Péi</title>
 <style>
+*{box-sizing:border-box}
 body{
-margin:0;
-font-family:Arial, sans-serif;
-background:#111;
-color:white;
-text-align:center;
-padding:40px;
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f0f0f;
+  color:white;
+}
+.hero{
+  min-height:100vh;
+  padding:24px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+  background:
+    radial-gradient(circle at top right, rgba(255,193,7,.25), transparent 35%),
+    linear-gradient(180deg,#111,#090909);
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.logo{
+  font-size:28px;
+  font-weight:900;
+  color:#ffc107;
+}
+.badge{
+  border:1px solid #ffc107;
+  color:#ffc107;
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:13px;
+}
+.main{
+  max-width:900px;
+  margin:70px auto;
+  text-align:center;
 }
 h1{
-font-size:48px;
-color:#f5c400;
-margin-bottom:10px;
+  font-size:clamp(42px,8vw,86px);
+  line-height:.95;
+  margin:0;
 }
-p{
-font-size:20px;
-color:#ddd;
+h1 span{color:#ffc107}
+.subtitle{
+  font-size:clamp(18px,3vw,26px);
+  color:#ddd;
+  max-width:720px;
+  margin:28px auto;
 }
-.btn{
-display:inline-block;
-margin-top:30px;
-padding:15px 30px;
-background:#f5c400;
-color:#111;
-text-decoration:none;
-border-radius:10px;
-font-weight:bold;
+.cta{
+  display:inline-block;
+  background:#ffc107;
+  color:#111;
+  padding:18px 34px;
+  border-radius:16px;
+  text-decoration:none;
+  font-weight:900;
+  font-size:18px;
+  box-shadow:0 12px 40px rgba(255,193,7,.25);
+}
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+  max-width:1000px;
+  margin:40px auto 0;
+}
+.card{
+  background:#181818;
+  border:1px solid #2a2a2a;
+  border-radius:22px;
+  padding:22px;
+  text-align:left;
+}
+.card h3{
+  color:#ffc107;
+  margin-top:0;
+}
+.section{
+  padding:70px 24px;
+  max-width:1100px;
+  margin:auto;
+}
+.section h2{
+  font-size:40px;
+  margin-bottom:12px;
+}
+.rank{
+  background:#151515;
+  border-radius:22px;
+  padding:20px;
+  margin-top:20px;
+  border:1px solid #2a2a2a;
+}
+.item{
+  display:flex;
+  justify-content:space-between;
+  padding:16px 0;
+  border-bottom:1px solid #2a2a2a;
+}
+.item:last-child{border-bottom:none}
+footer{
+  text-align:center;
+  padding:30px;
+  color:#aaa;
 }
 </style>
 </head>
 <body>
-<h1>Snack Péi</h1>
-<p>Le classement des meilleurs Américains, Lords et Paninis de La Réunion.</p>
-<a href="#" class="btn">Bientôt disponible</a>
+
+<div class="hero">
+  <header>
+    <div class="logo">Snack Péi</div>
+    <div class="badge">974 • Américains • Lords • Paninis</div>
+  </header>
+
+  <main class="main">
+    <h1>Le vrai classement des <span>sandwichs péi</span></h1>
+    <p class="subtitle">
+      Une application réunionnaise pour trouver, noter et classer les meilleurs
+      Américains, Lords et Paninis de La Réunion.
+    </p>
+    <a class="cta" href="#classement">Voir le concept</a>
+
+    <div class="cards">
+      <div class="card">
+        <h3>🥖 100% sandwichs</h3>
+        <p>Pas de tacos, pas de kebab, pas de burger. Uniquement Américains, Lords et Paninis.</p>
+      </div>
+      <div class="card">
+        <h3>⭐ Notes fiables</h3>
+        <p>Les sandwichs sont notés sur le goût, la quantité, le prix et les commentaires.</p>
+      </div>
+      <div class="card">
+        <h3>📍 La Réunion</h3>
+        <p>Un classement local, fait pour les Réunionnais, snack par snack.</p>
+      </div>
+    </div>
+  </main>
+</div>
+
+<section class="section" id="classement">
+  <h2>Classement propre à Snack Péi</h2>
+  <p>
+    La note d’un snack sera calculée uniquement à partir de la moyenne
+    de ses sandwichs notés dans l’application.
+  </p>
+
+  <div class="rank">
+    <div class="item">
+      <strong>🥇 Américain Steak Fromage</strong>
+      <span>4.8 ⭐</span>
+    </div>
+    <div class="item">
+      <strong>🥈 Lord Poulet</strong>
+      <span>4.6 ⭐</span>
+    </div>
+    <div class="item">
+      <strong>🥉 Panini Fromage</strong>
+      <span>4.4 ⭐</span>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <h2>Bientôt disponible</h2>
+  <p>
+    Snack Péi arrive bientôt avec la carte des snacks, les avis utilisateurs,
+    les temps d’attente journée/soir et les classements par ville.
+  </p>
+</section>
+
+<footer>
+  Snack Péi © 2026 — Fait à La Réunion, pour La Réunion.
+</footer>
+
 </body>
 </html>
