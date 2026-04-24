@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snack Péi</title>
+
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
+
 body{
   margin:0;
   font-family:Arial, sans-serif;
   background:#0f0f0f;
   color:white;
 }
+
 .hero{
   min-height:100vh;
   padding:24px;
@@ -19,19 +24,22 @@ body{
   flex-direction:column;
   justify-content:space-between;
   background:
-    radial-gradient(circle at top right, rgba(255,193,7,.25), transparent 35%),
-    linear-gradient(180deg,#111,#090909);
+  radial-gradient(circle at top right, rgba(255,193,7,.25), transparent 35%),
+  linear-gradient(180deg,#111,#090909);
 }
+
 header{
   display:flex;
   justify-content:space-between;
   align-items:center;
 }
+
 .logo{
   font-size:28px;
   font-weight:900;
   color:#ffc107;
 }
+
 .badge{
   border:1px solid #ffc107;
   color:#ffc107;
@@ -39,23 +47,30 @@ header{
   border-radius:999px;
   font-size:13px;
 }
+
 .main{
   max-width:900px;
   margin:70px auto;
   text-align:center;
 }
+
 h1{
   font-size:clamp(42px,8vw,86px);
   line-height:.95;
   margin:0;
 }
-h1 span{color:#ffc107}
+
+h1 span{
+  color:#ffc107;
+}
+
 .subtitle{
   font-size:clamp(18px,3vw,26px);
   color:#ddd;
   max-width:720px;
   margin:28px auto;
 }
+
 .cta{
   display:inline-block;
   background:#ffc107;
@@ -67,6 +82,7 @@ h1 span{color:#ffc107}
   font-size:18px;
   box-shadow:0 12px 40px rgba(255,193,7,.25);
 }
+
 .cards{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
@@ -74,6 +90,7 @@ h1 span{color:#ffc107}
   max-width:1000px;
   margin:40px auto 0;
 }
+
 .card{
   background:#181818;
   border:1px solid #2a2a2a;
@@ -81,19 +98,23 @@ h1 span{color:#ffc107}
   padding:22px;
   text-align:left;
 }
+
 .card h3{
   color:#ffc107;
   margin-top:0;
 }
+
 .section{
   padding:70px 24px;
   max-width:1100px;
   margin:auto;
 }
+
 .section h2{
   font-size:40px;
   margin-bottom:12px;
 }
+
 .rank{
   background:#151515;
   border-radius:22px;
@@ -101,13 +122,32 @@ h1 span{color:#ffc107}
   margin-top:20px;
   border:1px solid #2a2a2a;
 }
+
 .item{
   display:flex;
   justify-content:space-between;
   padding:16px 0;
   border-bottom:1px solid #2a2a2a;
 }
-.item:last-child{border-bottom:none}
+
+.item:last-child{
+  border-bottom:none;
+}
+
+input, textarea{
+  width:100%;
+  padding:14px;
+  margin:8px 0 18px;
+  border-radius:12px;
+  border:none;
+  font-size:16px;
+}
+
+button{
+  border:none;
+  cursor:pointer;
+}
+
 footer{
   text-align:center;
   padding:30px;
@@ -115,135 +155,170 @@ footer{
 }
 </style>
 </head>
+
 <body>
 
 <div class="hero">
-  <header>
-    <div class="logo">Snack Péi</div>
-    <div class="badge">974 • Américains • Lords • Paninis</div>
-  </header>
 
-  <main class="main">
-    <h1>Le vrai classement des <span>sandwichs péi</span></h1>
-    <p class="subtitle">
-      Une application réunionnaise pour trouver, noter et classer les meilleurs
-      Américains, Lords et Paninis de La Réunion.
-    </p>
-    <a class="cta" href="#classement">Voir le concept</a>
+<header>
+<div class="logo">Snack Péi</div>
+<div class="badge">974 • Américains • Lords • Paninis</div>
+</header>
 
-    <div class="cards">
-      <div class="card">
-        <h3>🥖 100% sandwichs</h3>
-        <p>Pas de tacos, pas de kebab, pas de burger. Uniquement Américains, Lords et Paninis.</p>
-      </div>
-      <div class="card">
-        <h3>⭐ Notes fiables</h3>
-        <p>Les sandwichs sont notés sur le goût, la quantité, le prix et les commentaires.</p>
-      </div>
-      <div class="card">
-        <h3>📍 La Réunion</h3>
-        <p>Un classement local, fait pour les Réunionnais, snack par snack.</p>
-      </div>
-    </div>
-  </main>
+<main class="main">
+
+<h1>Le vrai classement des <span>sandwichs péi</span></h1>
+
+<p class="subtitle">
+Une application réunionnaise pour trouver, noter et classer les meilleurs
+Américains, Lords et Paninis de La Réunion.
+</p>
+
+<a class="cta" href="#classement">Voir le concept</a>
+
+<div class="cards">
+
+<div class="card">
+<h3>🥖 100% sandwichs</h3>
+<p>Pas de tacos, pas de kebab, pas de burger. Seulement Américains, Lords et Paninis.</p>
+</div>
+
+<div class="card">
+<h3>⭐ Notes fiables</h3>
+<p>Les sandwichs sont notés sur le goût, la quantité, le prix et les commentaires.</p>
+</div>
+
+<div class="card">
+<h3>📍 La Réunion</h3>
+<p>Un classement local, fait pour les Réunionnais.</p>
+</div>
+
+</div>
+</main>
 </div>
 
 <section class="section" id="classement">
-  <h2>Classement propre à Snack Péi</h2>
-  <p>
-    La note d’un snack sera calculée uniquement à partir de la moyenne
-    de ses sandwichs notés dans l’application.
-  </p>
 
-  <div class="rank">
-    <div class="item">
-      <strong>🥇 Américain Steak Fromage</strong>
-      <span>4.8 ⭐</span>
-    </div>
-    <div class="item">
-      <strong>🥈 Lord Poulet</strong>
-      <span>4.6 ⭐</span>
-    </div>
-    <div class="item">
-      <strong>🥉 Panini Fromage</strong>
-      <span>4.4 ⭐</span>
-    </div>
-  </div>
+<h2>Classement propre à Snack Péi</h2>
+
+<p>
+La note d’un snack sera calculée uniquement à partir de la moyenne
+de ses sandwichs notés dans l’application.
+</p>
+
+<div class="rank">
+
+<div class="item">
+<strong>🥇 Américain Steak Fromage</strong>
+<span>4.8 ⭐</span>
+</div>
+
+<div class="item">
+<strong>🥈 Lord Poulet</strong>
+<span>4.6 ⭐</span>
+</div>
+
+<div class="item">
+<strong>🥉 Panini Fromage</strong>
+<span>4.4 ⭐</span>
+</div>
+
+</div>
 </section>
 
 <section class="section">
-  <h2>Bientôt disponible</h2>
-  <p>
-    Snack Péi arrive bientôt avec la carte des snacks, les avis utilisateurs,
-    les temps d’attente journée/soir et les classements par ville.
-  </p>
+
+<h2>Bientôt disponible</h2>
+
+<p>
+Snack Péi arrive bientôt avec la carte des snacks, les avis utilisateurs,
+les temps d’attente journée / soir et les classements par ville.
+</p>
+
+</section>
+
+<section class="section">
+
+<h2>➕ Proposer un snack</h2>
+
+<p>
+Un snack manque ? Ajoute-le à Snack Péi pour enrichir le classement.
+</p>
+
+<form class="rank">
+
+<label>Nom du snack</label>
+<input type="text">
+
+<label>Ville</label>
+<input type="text">
+
+<label>Adresse</label>
+<input type="text">
+
+<label>Téléphone</label>
+<input type="text">
+
+<label>Commentaire</label>
+<textarea></textarea>
+
+<button type="submit" class="cta">
+Envoyer la proposition
+</button>
+
+</form>
+
 </section>
 
 <footer>
-  Snack Péi © 2026 — Fait à La Réunion, pour La Réunion.
+Snack Péi © 2026 — Fait à La Réunion, pour La Réunion.
 </footer>
-<section class="section">
-  <h2>➕ Proposer un snack</h2>
-  <p>Un snack manque ? Ajoute-le à Snack Péi pour enrichir le classement.</p>
 
-  <form class="rank" style="max-width:700px;margin:auto;text-align:left;">
-    
-    <label>Nom du snack</label><br>
-    <input type="text" placeholder="Ex: Snack Chez Jo" style="width:100%;padding:14px;margin:8px 0 18px;border-radius:12px;border:none;"><br>
-
-    <label>Ville</label><br>
-    <input type="text" placeholder="Ex: Saint-Pierre" style="width:100%;padding:14px;margin:8px 0 18px;border-radius:12px;border:none;"><br>
-
-    <label>Adresse</label><br>
-    <input type="text" placeholder="Adresse du snack" style="width:100%;padding:14px;margin:8px 0 18px;border-radius:12px;border:none;"><br>
-
-    <label>Téléphone (facultatif)</label><br>
-    <input type="text" placeholder="0692..." style="width:100%;padding:14px;margin:8px 0 18px;border-radius:12px;border:none;"><br>
-
-    <label>Commentaire</label><br>
-    <textarea placeholder="Infos utiles..." style="width:100%;padding:14px;height:120px;margin:8px 0 18px;border-radius:12px;border:none;"></textarea><br>
-
-    <button type="submit" class="cta" style="border:none;cursor:pointer;">
-      Envoyer la proposition
-    </button>
-
-  </form>
-</section>
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
+const supabaseUrl = "https://duhwbegkdvclvnqwowpl.supabase.co";
+const supabaseKey = "sb_publishable_FXx9gEPl99ruxmBpKUCVlQ_Ll7paVdH";
+
 const supabase = window.supabase.createClient(
-  "https://duhwbegkdvclvnqwowpl.supabase.co",
-  "sb_publishable_FXx9gEPl99ruxmBpKUCVlQ_Ll7paVdH"
+  supabaseUrl,
+  supabaseKey
 );
+
+document.addEventListener("DOMContentLoaded", () => {
 
 const form = document.querySelector("form");
 
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+form.addEventListener("submit", async function(e){
 
-  const inputs = form.querySelectorAll("input, textarea");
+e.preventDefault();
 
-  const data = {
-    name: inputs[0].value,
-    city: inputs[1].value,
-    address: inputs[2].value,
-    phone: inputs[3].value,
-    comment: inputs[4].value
-  };
+const inputs = form.querySelectorAll("input, textarea");
 
-  const { error } = await supabase
-    .from("snack_suggestions")
-    .insert([data]);
+const data = {
+name: inputs[0].value.trim(),
+city: inputs[1].value.trim(),
+address: inputs[2].value.trim(),
+phone: inputs[3].value.trim(),
+comment: inputs[4].value.trim()
+};
 
-  if (error) {
-    alert("Erreur : " + error.message);
-  } else {
-    alert("Snack proposé avec succès 🔥");
-    form.reset();
-  }
+const { error } = await supabase
+.from("snack_suggestions")
+.insert([data]);
+
+if(error){
+alert("Erreur : " + error.message);
+}
+else{
+alert("Snack proposé avec succès 🔥");
+form.reset();
+}
+
+});
+
 });
 </script>
+
 </body>
-  <footer>
 </html>
