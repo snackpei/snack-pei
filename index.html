@@ -209,6 +209,41 @@ footer{
 
   </form>
 </section>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+const supabase = window.supabase.createClient(
+  "https://duhwbegkdvclvnqwowpl.supabase.co",
+  "sb_publishable_FXx9gEPl99ruxmBpKUCVlQ_Ll7paVdH"
+);
+
+const form = document.querySelector("form");
+
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
+
+  const inputs = form.querySelectorAll("input, textarea");
+
+  const data = {
+    name: inputs[0].value,
+    city: inputs[1].value,
+    address: inputs[2].value,
+    phone: inputs[3].value,
+    comment: inputs[4].value
+  };
+
+  const { error } = await supabase
+    .from("snack_suggestions")
+    .insert([data]);
+
+  if (error) {
+    alert("Erreur : " + error.message);
+  } else {
+    alert("Snack proposé avec succès 🔥");
+    form.reset();
+  }
+});
+</script>
 </body>
   <footer>
 </html>
