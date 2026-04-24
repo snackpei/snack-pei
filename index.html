@@ -154,6 +154,12 @@ border:1px solid #2a2a2a;
 margin-top:25px;
 }
 
+.message{
+margin-top:15px;
+font-weight:bold;
+color:#ffc107;
+}
+
 footer{
 text-align:center;
 padding:30px;
@@ -223,23 +229,25 @@ Américains, Lords et Paninis de La Réunion.
 <section class="section">
 <h2>➕ Proposer un snack</h2>
 
-<form class="rank">
+<form id="snackForm" class="rank">
 <label>Nom du snack</label>
-<input type="text">
+<input id="name" type="text" required>
 
 <label>Ville</label>
-<input type="text">
+<input id="city" type="text" required>
 
 <label>Adresse</label>
-<input type="text">
+<input id="address" type="text">
 
 <label>Téléphone</label>
-<input type="text">
+<input id="phone" type="text">
 
 <label>Commentaire</label>
-<textarea></textarea>
+<textarea id="comment"></textarea>
 
-<button type="submit" class="cta">Envoyer la proposition</button>
+<button id="submitBtn" type="submit" class="cta">Envoyer la proposition</button>
+
+<div id="formMessage" class="message"></div>
 </form>
 </section>
 
@@ -248,6 +256,7 @@ Snack Péi © 2026 — Fait à La Réunion.
 </footer>
 
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 document.addEventListener("DOMContentLoaded", function(){
@@ -273,12 +282,42 @@ L.marker([snack[1],snack[2]])
 .bindPopup("<strong>" + snack[0] + "</strong><br>Saint-Pierre");
 });
 
-const form = document.querySelector("form");
+const supabaseUrl = "https://duhwbegkdvclvnqwowpl.supabase.co";
+const supabaseKey = "sb_publishable_FXx9gEPl99ruxmBpKUCVlQ_Ll7paVdH";
 
-form.addEventListener("submit", function(e){
+const supabaseClient = window.supabase.createClient(supabaseUrl, supabaseKey);
+
+const form = document.getElementById("snackForm");
+const message = document.getElementById("formMessage");
+const submitBtn = document.getElementById("submitBtn");
+
+form.addEventListener("submit", async function(e){
 e.preventDefault();
-alert("Snack enregistré bientôt 🔥");
+
+message.textContent = "Envoi en cours...";
+submitBtn.disabled = true;
+
+const data = {
+name: document.getElementById("name").value.trim(),
+city: document.getElementById("city").value.trim(),
+address: document.getElementById("address").value.trim(),
+phone: document.getElementById("phone").value.trim(),
+comment: document.getElementById("comment").value.trim()
+};
+
+const result = await supabaseClient
+.from("snack_suggestions")
+.insert([data]);
+
+if(result.error){
+message.textContent = "Erreur : " + result.error.message;
+submitBtn.disabled = false;
+return;
+}
+
+message.textContent = "Snack proposé avec succès 🔥";
 form.reset();
+submitBtn.disabled = false;
 });
 
 });
