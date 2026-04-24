@@ -208,15 +208,15 @@ Américains, Lords et Paninis de La Réunion.
 <h2>Classement propre à Snack Péi</h2>
 
 <div class="rank">
-<div class="item"><strong>🥇 Grand Large</strong><span>4.8 ⭐</span></div>
-<div class="item"><strong>🥈 Phoenix Beach</strong><span>4.6 ⭐</span></div>
-<div class="item"><strong>🥉 Club Délice</strong><span>4.4 ⭐</span></div>
+<div class="item"><strong>🥇 Snack Bar La Ravine Blanche</strong><span>Bientôt noté ⭐</span></div>
+<div class="item"><strong>🥈 Phoenix Beach</strong><span>Bientôt noté ⭐</span></div>
+<div class="item"><strong>🥉 Club Délice</strong><span>Bientôt noté ⭐</span></div>
 </div>
 </section>
 
 <section class="section">
 <h2>🗺️ Carte des snacks</h2>
-<p>Découvre les snacks déjà référencés.</p>
+<p>Découvre les snacks déjà référencés à Saint-Pierre.</p>
 <div id="map"></div>
 </section>
 
@@ -252,27 +252,25 @@ Snack Péi © 2026 — Fait à La Réunion.
 <script>
 document.addEventListener("DOMContentLoaded", function(){
 
-const map = L.map("map").setView([-21.1151,55.5364],10);
+const map = L.map("map").setView([-21.3355,55.4635],13);
 
 L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
 attribution:"© OpenStreetMap"
 }).addTo(map);
 
 const snacks = [
-["Grand Large",-21.3426,55.4719],
-["Bon Goût",-21.3345,55.4648],
-["Club Délice",-21.3422,55.4708],
-["R'eat'Chy",-21.3396,55.4735],
-["Phoenix Beach",-21.3428,55.4702],
-["Chez Nanoune",-21.2948,55.4806],
-["Mamba",-21.2788,55.5163],
-["The S'Wich",-20.8789,55.4481]
+["Snack Bar La Ravine Blanche",-21.336417,55.456528],
+["Snack Bon Goût",-21.336888,55.459229],
+["Club Délice",-21.340236,55.459957],
+["Phoenix Beach",-21.340951,55.461073],
+["R'eat'Chy",-21.338972,55.471240],
+["Le Temps d’une Pause",-21.297401,55.459131]
 ];
 
 snacks.forEach(function(snack){
 L.marker([snack[1],snack[2]])
 .addTo(map)
-.bindPopup(snack[0]);
+.bindPopup("<strong>" + snack[0] + "</strong><br>Saint-Pierre");
 });
 
 const form = document.querySelector("form");
