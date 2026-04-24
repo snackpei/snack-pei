@@ -18,7 +18,46 @@
 
 <style>
 *{box-sizing:border-box;}
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
+<script>
+const map = L.map('map').setView([-21.1151, 55.5364], 10);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '© OpenStreetMap'
+}).addTo(map);
+
+const snacks = [
+  { name:"Grand Large", city:"Saint-Pierre", area:"Front de mer", lat:-21.3426, lng:55.4719, badge:"Meilleur américain / meilleur la nuit" },
+  { name:"Bon Goût", city:"Saint-Pierre", area:"Ravine Blanche", lat:-21.3345, lng:55.4648, badge:"Plus gros sandwich" },
+  { name:"Club Délice", city:"Saint-Pierre", area:"Front de mer", lat:-21.3422, lng:55.4708, badge:"Meilleur panini" },
+  { name:"R’eat’Chy", city:"Saint-Pierre", area:"Centre-ville", lat:-21.3396, lng:55.4735, badge:"Plus rapide" },
+  { name:"Phoenix Beach", city:"Saint-Pierre", area:"Front de mer", lat:-21.3428, lng:55.4702, badge:"Meilleur lord" },
+  { name:"Chez Nanoune", city:"Saint-Pierre", area:"Bois d’Olives", lat:-21.2948, lng:55.4806, badge:"Snack local" },
+
+  { name:"Mamba / Chez Jérome", city:"Le Tampon", area:"Trois Mares", lat:-21.2788, lng:55.5163, badge:"Secteur lycée" },
+  { name:"Snack-Bar Les Audax", city:"Le Tampon", area:"Centre", lat:-21.2782, lng:55.5151, badge:"Snack centre-ville" },
+  { name:"La Baz", city:"Le Tampon", area:"Centre", lat:-21.2765, lng:55.5142, badge:"Snack centre" },
+  { name:"Gouts & Saveurs", city:"Le Tampon", area:"Centre", lat:-21.2757, lng:55.5171, badge:"Restauration rapide" },
+  { name:"Chez Ti-yom", city:"Le Tampon", area:"Tampon", lat:-21.2799, lng:55.5205, badge:"Snack local" },
+  { name:"Snack des Palmiers", city:"Le Tampon", area:"Tampon", lat:-21.2834, lng:55.5224, badge:"Snack local" },
+
+  { name:"The S’Wich", city:"Saint-Denis", area:"Centre-ville", lat:-20.8789, lng:55.4481, badge:"Sandwich" },
+  { name:"Green Island", city:"Saint-Denis", area:"Centre-ville", lat:-20.8798, lng:55.4502, badge:"Sandwichs / paninis" },
+  { name:"Le P’tit Coin Sandwicherie", city:"Saint-Denis", area:"Sainte-Clotilde", lat:-20.9013, lng:55.4875, badge:"Sandwicherie" },
+  { name:"Snack Dan", city:"Saint-Denis", area:"Centre-ville", lat:-20.8807, lng:55.4490, badge:"Snack" },
+  { name:"BIG SANDWICH 974", city:"Saint-Denis", area:"Saint-Denis", lat:-20.8861, lng:55.4621, badge:"Big sandwich" }
+];
+
+snacks.forEach(snack => {
+  L.marker([snack.lat, snack.lng]).addTo(map)
+    .bindPopup(`
+      <strong>${snack.name}</strong><br>
+      ${snack.city} — ${snack.area}<br>
+      ⭐ ${snack.badge}
+    `);
+});
+</script>
 body{
 margin:0;
 font-family:Arial, sans-serif;
