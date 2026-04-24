@@ -1,66 +1,18 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-
-<style>
-#map{
-  height:500px;
-  width:100%;
-  border-radius:22px;
-  border:1px solid #2a2a2a;
-  margin-top:25px;
-}
-</style>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Snack Péi</title>
 
+<link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
 <style>
 *{box-sizing:border-box;}
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-<script>
-const map = L.map('map').setView([-21.1151, 55.5364], 10);
-
-L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-  attribution: '© OpenStreetMap'
-}).addTo(map);
-
-const snacks = [
-  { name:"Grand Large", city:"Saint-Pierre", area:"Front de mer", lat:-21.3426, lng:55.4719, badge:"Meilleur américain / meilleur la nuit" },
-  { name:"Bon Goût", city:"Saint-Pierre", area:"Ravine Blanche", lat:-21.3345, lng:55.4648, badge:"Plus gros sandwich" },
-  { name:"Club Délice", city:"Saint-Pierre", area:"Front de mer", lat:-21.3422, lng:55.4708, badge:"Meilleur panini" },
-  { name:"R’eat’Chy", city:"Saint-Pierre", area:"Centre-ville", lat:-21.3396, lng:55.4735, badge:"Plus rapide" },
-  { name:"Phoenix Beach", city:"Saint-Pierre", area:"Front de mer", lat:-21.3428, lng:55.4702, badge:"Meilleur lord" },
-  { name:"Chez Nanoune", city:"Saint-Pierre", area:"Bois d’Olives", lat:-21.2948, lng:55.4806, badge:"Snack local" },
-
-  { name:"Mamba / Chez Jérome", city:"Le Tampon", area:"Trois Mares", lat:-21.2788, lng:55.5163, badge:"Secteur lycée" },
-  { name:"Snack-Bar Les Audax", city:"Le Tampon", area:"Centre", lat:-21.2782, lng:55.5151, badge:"Snack centre-ville" },
-  { name:"La Baz", city:"Le Tampon", area:"Centre", lat:-21.2765, lng:55.5142, badge:"Snack centre" },
-  { name:"Gouts & Saveurs", city:"Le Tampon", area:"Centre", lat:-21.2757, lng:55.5171, badge:"Restauration rapide" },
-  { name:"Chez Ti-yom", city:"Le Tampon", area:"Tampon", lat:-21.2799, lng:55.5205, badge:"Snack local" },
-  { name:"Snack des Palmiers", city:"Le Tampon", area:"Tampon", lat:-21.2834, lng:55.5224, badge:"Snack local" },
-
-  { name:"The S’Wich", city:"Saint-Denis", area:"Centre-ville", lat:-20.8789, lng:55.4481, badge:"Sandwich" },
-  { name:"Green Island", city:"Saint-Denis", area:"Centre-ville", lat:-20.8798, lng:55.4502, badge:"Sandwichs / paninis" },
-  { name:"Le P’tit Coin Sandwicherie", city:"Saint-Denis", area:"Sainte-Clotilde", lat:-20.9013, lng:55.4875, badge:"Sandwicherie" },
-  { name:"Snack Dan", city:"Saint-Denis", area:"Centre-ville", lat:-20.8807, lng:55.4490, badge:"Snack" },
-  { name:"BIG SANDWICH 974", city:"Saint-Denis", area:"Saint-Denis", lat:-20.8861, lng:55.4621, badge:"Big sandwich" }
-];
-
-snacks.forEach(snack => {
-  L.marker([snack.lat, snack.lng]).addTo(map)
-    .bindPopup(`
-      <strong>${snack.name}</strong><br>
-      ${snack.city} — ${snack.area}<br>
-      ⭐ ${snack.badge}
-    `);
-});
-</script>
 body{
 margin:0;
-font-family:Arial, sans-serif;
+font-family:Arial,sans-serif;
 background:#0f0f0f;
 color:white;
 }
@@ -106,7 +58,7 @@ text-align:center;
 
 h1{
 font-size:clamp(42px,8vw,86px);
-line-height:0.95;
+line-height:.95;
 margin:0;
 }
 
@@ -194,6 +146,14 @@ border:none;
 font-size:16px;
 }
 
+#map{
+height:500px;
+width:100%;
+border-radius:22px;
+border:1px solid #2a2a2a;
+margin-top:25px;
+}
+
 footer{
 text-align:center;
 padding:30px;
@@ -226,17 +186,17 @@ Américains, Lords et Paninis de La Réunion.
 
 <div class="card">
 <h3>🥖 100% sandwichs</h3>
-<p>Pas de tacos, pas de kebab, pas de burger. Seulement Américains, Lords et Paninis.</p>
+<p>Pas de tacos, kebab ou burger.</p>
 </div>
 
 <div class="card">
 <h3>⭐ Notes fiables</h3>
-<p>Les sandwichs sont notés sur le goût, la quantité, le prix et les commentaires.</p>
+<p>Goût, quantité, prix et commentaires.</p>
 </div>
 
 <div class="card">
 <h3>📍 La Réunion</h3>
-<p>Un classement local, fait pour les Réunionnais.</p>
+<p>Classement local par ville.</p>
 </div>
 
 </div>
@@ -245,59 +205,25 @@ Américains, Lords et Paninis de La Réunion.
 </div>
 
 <section class="section" id="classement">
-
 <h2>Classement propre à Snack Péi</h2>
 
-<p>
-La note d’un snack sera calculée uniquement à partir de la moyenne
-de ses sandwichs notés dans l’application.
-</p>
-
 <div class="rank">
-
-<div class="item">
-<strong>🥇 Américain Steak Fromage</strong>
-<span>4.8 ⭐</span>
+<div class="item"><strong>🥇 Grand Large</strong><span>4.8 ⭐</span></div>
+<div class="item"><strong>🥈 Phoenix Beach</strong><span>4.6 ⭐</span></div>
+<div class="item"><strong>🥉 Club Délice</strong><span>4.4 ⭐</span></div>
 </div>
-
-<div class="item">
-<strong>🥈 Lord Poulet</strong>
-<span>4.6 ⭐</span>
-</div>
-
-<div class="item">
-<strong>🥉 Panini Fromage</strong>
-<span>4.4 ⭐</span>
-</div>
-
-</div>
-
 </section>
 
 <section class="section">
-
-<h2>Bientôt disponible</h2>
-
-<p>
-Snack Péi arrive bientôt avec la carte des snacks, les avis utilisateurs,
-les temps d’attente journée / soir et les classements par ville.
-</p>
-
+<h2>🗺️ Carte des snacks</h2>
+<p>Découvre les snacks déjà référencés.</p>
+<div id="map"></div>
 </section>
 
 <section class="section">
-  <h2>🗺️ Carte des snacks</h2>
-  <p>Découvre les premiers snacks référencés sur Snack Péi.</p>
-  <div id="map"></div>
-</section>
 <h2>➕ Proposer un snack</h2>
 
-<p>
-Un snack manque ? Ajoute-le à Snack Péi pour enrichir le classement.
-</p>
-
 <form class="rank">
-
 <label>Nom du snack</label>
 <input type="text">
 
@@ -313,35 +239,48 @@ Un snack manque ? Ajoute-le à Snack Péi pour enrichir le classement.
 <label>Commentaire</label>
 <textarea></textarea>
 
-<button type="submit" class="cta">
-Envoyer la proposition
-</button>
-
+<button type="submit" class="cta">Envoyer la proposition</button>
 </form>
-
 </section>
 
 <footer>
-Snack Péi © 2026 — Fait à La Réunion, pour La Réunion.
+Snack Péi © 2026 — Fait à La Réunion.
 </footer>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
 <script>
-alert("Script chargé ✅");
-
 document.addEventListener("DOMContentLoaded", function(){
+
+const map = L.map("map").setView([-21.1151,55.5364],10);
+
+L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+attribution:"© OpenStreetMap"
+}).addTo(map);
+
+const snacks = [
+["Grand Large",-21.3426,55.4719],
+["Bon Goût",-21.3345,55.4648],
+["Club Délice",-21.3422,55.4708],
+["R'eat'Chy",-21.3396,55.4735],
+["Phoenix Beach",-21.3428,55.4702],
+["Chez Nanoune",-21.2948,55.4806],
+["Mamba",-21.2788,55.5163],
+["The S'Wich",-20.8789,55.4481]
+];
+
+snacks.forEach(function(snack){
+L.marker([snack[1],snack[2]])
+.addTo(map)
+.bindPopup(snack[0]);
+});
 
 const form = document.querySelector("form");
 
-if(!form){
-alert("Formulaire introuvable ❌");
-return;
-}
-
 form.addEventListener("submit", function(e){
 e.preventDefault();
-alert("Bouton détecté ✅");
+alert("Snack enregistré bientôt 🔥");
+form.reset();
 });
 
 });
